@@ -1,0 +1,31 @@
+.weltkarte-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+}
+
+.weltkarte-img {
+  width: 100%;
+  height: auto;
+  border: 2px solid #444;
+  border-radius: 8px;
+}
+
+.quest-marker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.weltkartenbild {
+  width: 100%;
+  max-width: 1200px;  /* oder z. B. 1400px */
+  height: auto;
+  display: block;
+  margin: 20px auto;   /* zentriert das Bild mit etwas Abstand */
+  border: 3px solid #333;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* optional: Schatten für cooleren Look */
+}

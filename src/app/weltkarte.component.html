@@ -1,0 +1,22 @@
+<div class="weltkarte-container">
+  <img src="assets/weltkarte.png" alt="Weltkarte" class="weltkartenbild">
+
+
+
+  <div
+    *ngFor="let quest of quests"
+    class="quest-marker"
+    [ngClass]="quest.status"
+    (click)="zeigeQuestDetails(quest)"
+    [title]="quest.name"
+    [style.left.%]="quest.positionX"
+    [style.top.%]="quest.positionY"
+  >
+    <ng-container [ngSwitch]="quest.status">
+      <span *ngSwitchCase="'offen'">🔵</span>
+      <span *ngSwitchCase="'versteckt'">🔒</span>
+      <span *ngSwitchCase="'aktiv'">🟢</span>
+      <span *ngSwitchCase="'erledigt'">✅</span>
+    </ng-container>
+  </div>
+</div>
