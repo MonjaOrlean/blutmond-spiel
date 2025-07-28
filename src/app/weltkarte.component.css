@@ -1,31 +1,66 @@
-.weltkarte-container {
+/* GANZER Bildschirm: Hintergrund in Braun (#3c2f2a) */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #3c2f2a;
+  font-family: 'Segoe UI', sans-serif;
+  color: black;
+  overflow-x: hidden;
+}
+
+/* Noch größerer Außencontainer */
+.karte-wrapper {
+  width: 95vw;
+  max-width: 2000px;
+  margin: 120px auto;
+  padding: 140px;
+  background-color: #3c2f2a;
+  border-radius: 80px;
+  box-shadow: 0 0 80px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Kartenbild-Container */
+.karte-container {
   position: relative;
   width: 100%;
-  max-width: 900px;
-  margin: auto;
 }
 
-.weltkarte-img {
-  width: 100%;
-  height: auto;
-  border: 2px solid #444;
-  border-radius: 8px;
-}
-
-.quest-marker {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
-  font-size: 24px;
-}
-
+/* Weltkarte */
 .weltkartenbild {
   width: 100%;
-  max-width: 1200px;  /* oder z. B. 1400px */
   height: auto;
+  border-radius: 60px;
   display: block;
-  margin: 20px auto;   /* zentriert das Bild mit etwas Abstand */
-  border: 3px solid #333;
-  border-radius: 8px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* optional: Schatten für cooleren Look */
+}
+
+/* Quest-Marker */
+.marker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* Legende – doppelt so groß */
+.legende {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  padding: 30px 0;
+  font-size: 2.8rem;         /* doppelte Größe */
+  color: black;
+  margin-top: 60px;
+  background-color: transparent;
+  border-top: none;
+}
+
+/* Symbole in der Legende – doppelt so groß */
+.symbol {
+  margin-right: 14px;
+  font-size: 3.2rem;
 }

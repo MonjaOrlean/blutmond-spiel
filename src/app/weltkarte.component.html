@@ -1,22 +1,28 @@
-<div class="weltkarte-container">
-  <img src="assets/weltkarte.png" alt="Weltkarte" class="weltkartenbild">
+<div class="karte-wrapper">
+  <div class="karte-container">
+    <img src="assets/weltkarte.png" alt="Weltkarte" class="weltkartenbild" />
 
+    <div
+      *ngFor="let quest of quests"
+      class="marker"
+      [ngStyle]="{ left: quest.x + '%', top: quest.y + '%' }"
+      (click)="zeigeQuestDetails(quest)"
+      [title]="quest.name"
+    >
+      <ng-container [ngSwitch]="quest.status">
+        <span *ngSwitchCase="'offen'">🔵</span>
+        <span *ngSwitchCase="'versteckt'">🔒</span>
+        <span *ngSwitchCase="'aktiv'">🟢</span>
+        <span *ngSwitchCase="'erledigt'">✅</span>
+        <span *ngSwitchDefault>❔</span>
+      </ng-container>
+    </div>
+  </div>
 
-
-  <div
-    *ngFor="let quest of quests"
-    class="quest-marker"
-    [ngClass]="quest.status"
-    (click)="zeigeQuestDetails(quest)"
-    [title]="quest.name"
-    [style.left.%]="quest.positionX"
-    [style.top.%]="quest.positionY"
-  >
-    <ng-container [ngSwitch]="quest.status">
-      <span *ngSwitchCase="'offen'">🔵</span>
-      <span *ngSwitchCase="'versteckt'">🔒</span>
-      <span *ngSwitchCase="'aktiv'">🟢</span>
-      <span *ngSwitchCase="'erledigt'">✅</span>
-    </ng-container>
+  <div class="legende">
+    <div><span class="symbol">🔵</span> Offen</div>
+    <div><span class="symbol">🔒</span> Versteckt</div>
+    <div><span class="symbol">🟢</span> Aktiv</div>
+    <div><span class="symbol">✅</span> Erledigt</div>
   </div>
 </div>

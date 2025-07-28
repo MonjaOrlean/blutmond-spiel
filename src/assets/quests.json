@@ -4,31 +4,45 @@
     "name": "Spur im Nebel",
     "ort": "Wolfswald",
     "status": "aktiv",
-    "positionX": 30,
-    "positionY": 40
+    "x": 30,
+    "y": 40
   },
   {
     "id": "q2",
     "name": "Das geheime Grab",
     "ort": "Wolfswald",
     "status": "versteckt",
-    "positionX": 50,
-    "positionY": 60
+    "x": 50,
+    "y": 60
   },
   {
     "id": "q3",
     "name": "Schimmernde Pfote",
     "ort": "Wolfswald",
     "status": "offen",
-    "positionX": 70,
-    "positionY": 20
+    "x": 70,
+    "y": 20
   },
   {
     "id": "q4",
     "name": "Wächterstein berühren",
     "ort": "Wolfswald",
     "status": "erledigt",
-    "positionX": 20,
-    "positionY": 75
+    "x": 20,
+    "y": 75
+  },
+  {
+    "id": 1,
+    "name": "Spuren im Wolfswald",
+    "status": "offen",
+    "x": 42,
+    "y": 55
+  },
+  {
+    "id": 2,
+    "name": "Der verbotene Pfad",
+    "status": "versteckt",
+    "x": 70,
+    "y": 32
   }
 ]
