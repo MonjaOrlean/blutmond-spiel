@@ -5,7 +5,8 @@
     "ort": "Wolfswald",
     "status": "aktiv",
     "x": 30,
-    "y": 40
+    "y": 40,
+    "region": "Wolfswald"
   },
   {
     "id": "q2",
@@ -13,7 +14,8 @@
     "ort": "Wolfswald",
     "status": "versteckt",
     "x": 50,
-    "y": 60
+    "y": 60,
+    "region": "Wolfswald"
   },
   {
     "id": "q3",
@@ -21,7 +23,8 @@
     "ort": "Wolfswald",
     "status": "offen",
     "x": 70,
-    "y": 20
+    "y": 20,
+    "region": "Wolfswald"
   },
   {
     "id": "q4",
@@ -29,20 +32,23 @@
     "ort": "Wolfswald",
     "status": "erledigt",
     "x": 20,
-    "y": 75
+    "y": 75,
+    "region": "Wolfswald"
   },
   {
     "id": 1,
     "name": "Spuren im Wolfswald",
     "status": "offen",
     "x": 42,
-    "y": 55
+    "y": 55,
+    "region": "Wolfswald"
   },
   {
     "id": 2,
     "name": "Der verbotene Pfad",
     "status": "versteckt",
     "x": 70,
-    "y": 32
+    "y": 32,
+    "region": "Wolfswald"
   }
 ]

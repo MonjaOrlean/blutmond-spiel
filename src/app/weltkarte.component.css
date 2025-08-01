@@ -1,15 +1,13 @@
-/* GANZER Bildschirm: Hintergrund in Braun (#3c2f2a) */
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
   background-color: #3c2f2a;
   font-family: 'Segoe UI', sans-serif;
-  color: black;
+  color: rgb(6, 6, 6);
   overflow-x: hidden;
 }
 
-/* Noch größerer Außencontainer */
 .karte-wrapper {
   width: 95vw;
   max-width: 2000px;
@@ -23,44 +21,97 @@ html, body {
   align-items: center;
 }
 
-/* Kartenbild-Container */
 .karte-container {
   position: relative;
   width: 100%;
 }
 
-/* Weltkarte */
 .weltkartenbild {
   width: 100%;
   height: auto;
-  border-radius: 60px;
   display: block;
+  border-radius: 60px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.7);
 }
 
-/* Quest-Marker */
 .marker {
   position: absolute;
   transform: translate(-50%, -50%);
-  font-size: 2rem;
+  font-size: 3.2rem;
   cursor: pointer;
   z-index: 10;
 }
 
-/* Legende – doppelt so groß */
 .legende {
   display: flex;
   justify-content: center;
   gap: 80px;
   padding: 30px 0;
-  font-size: 2.8rem;         /* doppelte Größe */
+  font-size: 2.8rem;
   color: black;
   margin-top: 60px;
   background-color: transparent;
   border-top: none;
 }
 
-/* Symbole in der Legende – doppelt so groß */
 .symbol {
-  margin-right: 14px;
+  margin-right: 20px;
   font-size: 3.2rem;
+}
+
+.quest-info {
+  position: absolute;
+  transform: translate(35px, -50%);
+  width: 360px;
+  background-color: rgba(255, 248, 240, 0.98);
+  color: #1e1e1e;
+  padding: 20px 12px;
+  border-radius: 22px;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  font-size: 1.4rem;
+  backdrop-filter: blur(5px);
+  pointer-events: auto;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.quest-info h3 {
+  margin-top: 0;
+  font-size: 1.6rem;
+  color: #3c2f2a;
+}
+
+.quest-info p {
+  margin: 8px 0;
+}
+
+.schliessen-button {
+  margin-top: 10px;
+  padding: 10px 18px;
+  background-color: #3c2f2a;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+}
+
+.schliessen-button:hover {
+  background-color: #5b433a;
+}
+
+.einstieg {
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.einstieg select {
+  font-size: 1.2rem;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: none;
+  margin-left: 12px;
 }

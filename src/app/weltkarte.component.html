@@ -1,4 +1,19 @@
 <div class="karte-wrapper">
+
+  <!-- Titel und Dropdown -->
+  <div class="einstieg">
+    <h2>🌍 Weltkarte von <em>Blutmond</em></h2>
+    <p>Klicke auf ein Symbol, um mehr über eine Quest zu erfahren.</p>
+
+    <!-- Dropdown zur Regionsauswahl -->
+    <label for="region-auswahl">Region:</label>
+    <select id="region-auswahl" [(ngModel)]="ausgewaehlteRegion" (change)="filternNachRegion(ausgewaehlteRegion)">
+      <option value="alle">🌐 Alle Regionen</option>
+      <option *ngFor="let region of regionen" [value]="region">{{ region }}</option>
+    </select>
+  </div>
+
+  <!-- Karte -->
   <div class="karte-container">
     <img src="assets/weltkarte.png" alt="Weltkarte" class="weltkartenbild" />
 
@@ -9,20 +24,31 @@
       (click)="zeigeQuestDetails(quest)"
       [title]="quest.name"
     >
-      <ng-container [ngSwitch]="quest.status">
-        <span *ngSwitchCase="'offen'">🔵</span>
-        <span *ngSwitchCase="'versteckt'">🔒</span>
-        <span *ngSwitchCase="'aktiv'">🟢</span>
-        <span *ngSwitchCase="'erledigt'">✅</span>
-        <span *ngSwitchDefault>❔</span>
-      </ng-container>
+      {{ getSymbol(quest.status) }}
+    </div>
+
+    <!-- Questdetails -->
+    <div
+      class="quest-info"
+      *ngIf="ausgewaehlteQuest"
+      [ngStyle]="{
+        left: questPosX + '%',
+        top: questPosY + '%'
+      }"
+    >
+      <h3>{{ ausgewaehlteQuest.name }}</h3>
+      <p>📍 Ort: {{ ausgewaehlteQuest.ort || 'Unbekannt' }}</p>
+      <p>📜 Status: {{ ausgewaehlteQuest.status }}</p>
+      <button class="schliessen-button" (click)="schliesseDetails()">Schließen</button>
     </div>
   </div>
 
+  <!-- Legende -->
   <div class="legende">
     <div><span class="symbol">🔵</span> Offen</div>
     <div><span class="symbol">🔒</span> Versteckt</div>
     <div><span class="symbol">🟢</span> Aktiv</div>
     <div><span class="symbol">✅</span> Erledigt</div>
   </div>
+
 </div>
