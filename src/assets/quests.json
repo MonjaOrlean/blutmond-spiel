@@ -4,51 +4,119 @@
     "name": "Spur im Nebel",
     "ort": "Wolfswald",
     "status": "aktiv",
-    "x": 30,
-    "y": 40,
-    "region": "Wolfswald"
+    "x": 18,
+    "y": 26
   },
   {
     "id": "q2",
     "name": "Das geheime Grab",
     "ort": "Wolfswald",
     "status": "versteckt",
-    "x": 50,
-    "y": 60,
-    "region": "Wolfswald"
+    "x": 24,
+    "y": 33
   },
   {
     "id": "q3",
     "name": "Schimmernde Pfote",
     "ort": "Wolfswald",
     "status": "offen",
-    "x": 70,
-    "y": 20,
-    "region": "Wolfswald"
+    "x": 30,
+    "y": 19
   },
   {
     "id": "q4",
     "name": "Wächterstein berühren",
     "ort": "Wolfswald",
     "status": "erledigt",
-    "x": 20,
-    "y": 75,
-    "region": "Wolfswald"
+    "x": 21,
+    "y": 45
   },
   {
-    "id": 1,
-    "name": "Spuren im Wolfswald",
-    "status": "offen",
-    "x": 42,
-    "y": 55,
-    "region": "Wolfswald"
-  },
-  {
-    "id": 2,
+    "id": "q5",
     "name": "Der verbotene Pfad",
+    "ort": "Wolfswald",
     "status": "versteckt",
+    "x": 33,
+    "y": 40
+  },
+  {
+    "id": "q6",
+    "name": "Mondlichtbeobachtung",
+    "ort": "Mondklippen",
+    "status": "offen",
+    "x": 65,
+    "y": 18
+  },
+  {
+    "id": "q7",
+    "name": "Die flüsternden Schatten",
+    "ort": "Mondklippen",
+    "status": "aktiv",
     "x": 70,
-    "y": 32,
-    "region": "Wolfswald"
+    "y": 25
+  },
+  {
+    "id": "q8",
+    "name": "Spähtrupp vermisst",
+    "ort": "Falkenwacht",
+    "status": "offen",
+    "x": 85,
+    "y": 14
+  },
+  {
+    "id": "q9",
+    "name": "Signalfeuer entzünden",
+    "ort": "Falkenwacht",
+    "status": "erledigt",
+    "x": 88,
+    "y": 20
+  },
+  {
+    "id": "q10",
+    "name": "Giftnebel erforschen",
+    "ort": "Aschenmoor",
+    "status": "offen",
+    "x": 60,
+    "y": 66
+  },
+  {
+    "id": "q11",
+    "name": "Aschegeist bannen",
+    "ort": "Aschenmoor",
+    "status": "versteckt",
+    "x": 64,
+    "y": 72
+  },
+  {
+    "id": "q12",
+    "name": "Dämmerlicht-Rätsel",
+    "ort": "Dämmerhain",
+    "status": "offen",
+    "x": 82,
+    "y": 50
+  },
+  {
+    "id": "q13",
+    "name": "Hain der Stille",
+    "ort": "Dämmerhain",
+    "status": "aktiv",
+    "x": 85,
+    "y": 56
+  },
+  {
+    "id": "q14",
+    "name": "Spiegelscherbe finden",
+    "ort": "Spiegelsee",
+    "status": "offen",
+    "x": 40,
+    "y": 84
+  },
+  {
+    "id": "q15",
+    "name": "Ruf der Wassergeister",
+    "ort": "Spiegelsee",
+    "status": "versteckt",
+    "x": 45,
+    "y": 90
   }
 ]

@@ -1,45 +1,53 @@
 <div class="karte-wrapper">
 
-  <!-- Titel und Dropdown -->
+  <!-- Einstieg und Dropdown -->
   <div class="einstieg">
-    <h2>🌍 Weltkarte von <em>Blutmond</em></h2>
-    <p>Klicke auf ein Symbol, um mehr über eine Quest zu erfahren.</p>
+    <h2 style="color: darkred;">🌍 Weltkarte von <em>Blutmond</em></h2>
+    <p style="color: darkred;">Klicke auf ein Symbol, um mehr über eine Quest zu erfahren.</p>
 
-    <!-- Dropdown zur Regionsauswahl -->
-    <label for="region-auswahl">Region:</label>
-    <select id="region-auswahl" [(ngModel)]="ausgewaehlteRegion" (change)="filternNachRegion(ausgewaehlteRegion)">
-      <option value="alle">🌐 Alle Regionen</option>
-      <option *ngFor="let region of regionen" [value]="region">{{ region }}</option>
+    <label for="gebiet-auswahl" class="dropdown-label">Gebiet:&nbsp;</label>
+    <select id="gebiet-auswahl" [(ngModel)]="gefiltertesGebiet">
+      <option value="">🌐 Alle Gebiete</option>
+      <option *ngFor="let gebiet of gebiete" [value]="gebiet.name">
+        {{ gebiet.symbol }} {{ gebiet.name }}
+      </option>
     </select>
   </div>
 
-  <!-- Karte -->
+  <!-- Weltkarte mit Questmarkern -->
   <div class="karte-container">
     <img src="assets/weltkarte.png" alt="Weltkarte" class="weltkartenbild" />
 
-    <div
-      *ngFor="let quest of quests"
-      class="marker"
-      [ngStyle]="{ left: quest.x + '%', top: quest.y + '%' }"
-      (click)="zeigeQuestDetails(quest)"
-      [title]="quest.name"
-    >
-      {{ getSymbol(quest.status) }}
+    <!-- Gebietsnamen (Positionen aus regionen.json) -->
+    <div *ngFor="let region of regionen"
+         class="gebietsname"
+         [ngStyle]="{ left: region.x + '%', top: region.y + '%' }">
+      {{ region.name }}
     </div>
 
-    <!-- Questdetails -->
-    <div
-      class="quest-info"
-      *ngIf="ausgewaehlteQuest"
-      [ngStyle]="{
-        left: questPosX + '%',
-        top: questPosY + '%'
-      }"
-    >
+    <!-- Marker für Quests -->
+    <div *ngFor="let quest of gefilterteQuests()"
+         class="marker"
+         [ngStyle]="{ left: quest.x + '%', top: quest.y + '%' }"
+         (click)="zeigeQuestDetails(quest)"
+         [title]="quest.name">
+      <ng-container [ngSwitch]="quest.status">
+        <span *ngSwitchCase="'offen'">🔵</span>
+        <span *ngSwitchCase="'versteckt'">🔒</span>
+        <span *ngSwitchCase="'aktiv'">🟢</span>
+        <span *ngSwitchCase="'erledigt'">✅</span>
+        <span *ngSwitchDefault>❔</span>
+      </ng-container>
+    </div>
+
+    <!-- Infobox bei Klick auf Marker -->
+    <div *ngIf="ausgewaehlteQuest"
+         class="quest-info"
+         [ngStyle]="{ left: (questPosX + 2) + '%', top: questPosY + '%' }">
       <h3>{{ ausgewaehlteQuest.name }}</h3>
       <p>📍 Ort: {{ ausgewaehlteQuest.ort || 'Unbekannt' }}</p>
       <p>📜 Status: {{ ausgewaehlteQuest.status }}</p>
-      <button class="schliessen-button" (click)="schliesseDetails()">Schließen</button>
+      <button (click)="schliesseDetails()">Schließen</button>
     </div>
   </div>
 

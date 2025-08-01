@@ -1,21 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgFor, NgIf, NgStyle, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { FormsModule } from '@angular/forms'; // <- Wichtig für ngModel
 
 @Component({
   selector: 'app-weltkarte',
   standalone: true,
-  imports: [CommonModule, FormsModule],
   templateUrl: './weltkarte.component.html',
-  styleUrls: ['./weltkarte.component.css']
+  styleUrls: ['./weltkarte.component.css'],
+  imports: [
+    NgIf,
+    NgFor,
+    NgStyle,
+    NgSwitch,
+    NgSwitchCase,
+    NgSwitchDefault,
+    FormsModule
+  ]
 })
 export class WeltkarteComponent implements OnInit {
-  alleQuests: any[] = [];
   quests: any[] = [];
-  regionen: string[] = [];
-  ausgewaehlteRegion: string = 'alle';
-
+  regionen: any[] = [];
+  gebiete: any[] = [];
+  gefiltertesGebiet: string = '';
   ausgewaehlteQuest: any = null;
   questPosX: number = 0;
   questPosY: number = 0;
@@ -23,27 +30,14 @@ export class WeltkarteComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.http.get<any[]>('assets/quests.json').subscribe(data => {
-      this.alleQuests = data;
-      this.regionen = this.getRegionen(data);
-      this.filternNachRegion('alle');
-    });
+    this.http.get<any[]>('assets/quests.json').subscribe(data => this.quests = data);
+    this.http.get<any[]>('assets/regionen.json').subscribe(data => this.regionen = data);
+    this.http.get<any[]>('assets/gebiete.json').subscribe(data => this.gebiete = data);
   }
 
-  getRegionen(quests: any[]): string[] {
-    const regionenSet = new Set<string>();
-    quests.forEach(q => {
-      if (q.ort) regionenSet.add(q.ort);
-    });
-    return Array.from(regionenSet);
-  }
-
-  filternNachRegion(region: string): void {
-    this.ausgewaehlteRegion = region;
-    this.quests = region === 'alle'
-      ? this.alleQuests
-      : this.alleQuests.filter(q => q.ort === region);
-    this.ausgewaehlteQuest = null;
+  gefilterteQuests(): any[] {
+    if (!this.gefiltertesGebiet) return this.quests;
+    return this.quests.filter(q => q.ort === this.gefiltertesGebiet);
   }
 
   zeigeQuestDetails(quest: any): void {
@@ -54,15 +48,5 @@ export class WeltkarteComponent implements OnInit {
 
   schliesseDetails(): void {
     this.ausgewaehlteQuest = null;
-  }
-
-  getSymbol(status: string): string {
-    switch (status) {
-      case 'aktiv': return '🟢';
-      case 'offen': return '🔵';
-      case 'versteckt': return '🔒';
-      case 'erledigt': return '✅';
-      default: return '❔';
-    }
   }
 }

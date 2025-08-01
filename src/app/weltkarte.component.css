@@ -9,13 +9,13 @@ html, body {
 }
 
 .karte-wrapper {
-  width: 95vw;
-  max-width: 2000px;
-  margin: 120px auto;
-  padding: 140px;
+  width: 85vw;
+  max-width: 1400px;
+  margin: 60px auto;
+  padding: 100px;
   background-color: #3c2f2a;
-  border-radius: 80px;
-  box-shadow: 0 0 80px rgba(0, 0, 0, 0.7);
+  border-radius: 60px;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.7);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,56 +23,41 @@ html, body {
 
 .karte-container {
   position: relative;
-  width: 100%;
+  width: 94%;           /* vorher: 115%; jetzt: ca. 3 cm Rand links + rechts */
+  margin: 0 auto;       /* zentriert */
 }
+
 
 .weltkartenbild {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 60px;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.7);
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 }
 
 .marker {
   position: absolute;
   transform: translate(-50%, -50%);
-  font-size: 3.2rem;
+  font-size: 2.6rem;
   cursor: pointer;
   z-index: 10;
 }
 
-.legende {
-  display: flex;
-  justify-content: center;
-  gap: 80px;
-  padding: 30px 0;
-  font-size: 2.8rem;
-  color: black;
-  margin-top: 60px;
-  background-color: transparent;
-  border-top: none;
-}
-
-.symbol {
-  margin-right: 20px;
-  font-size: 3.2rem;
-}
-
 .quest-info {
   position: absolute;
-  transform: translate(35px, -50%);
-  width: 360px;
+  transform: translate(0, -50%);
+  width: 380px;
   background-color: rgba(255, 248, 240, 0.98);
   color: #1e1e1e;
-  padding: 20px 12px;
-  border-radius: 22px;
-  box-shadow: 0 0 16px rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.6);
   z-index: 999;
-  font-size: 1.4rem;
-  backdrop-filter: blur(5px);
+  font-size: 1.3rem;
+  backdrop-filter: blur(4px);
   pointer-events: auto;
-  line-height: 1.6;
+  line-height: 1.5;
   text-align: center;
 }
 
@@ -83,35 +68,83 @@ html, body {
 }
 
 .quest-info p {
-  margin: 8px 0;
+  margin: 10px 0;
+  line-height: 1.4;
 }
 
-.schliessen-button {
-  margin-top: 10px;
-  padding: 10px 18px;
+.quest-info button {
+  margin-top: 12px;
+  padding: 10px 16px;
   background-color: #3c2f2a;
   color: white;
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  font-size: 1.1rem;
-  transition: background-color 0.3s ease;
+  font-size: 1rem;
 }
 
-.schliessen-button:hover {
+.quest-info button:hover {
   background-color: #5b433a;
+}
+
+.legende {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  padding: 30px 0;
+  font-size: 2.4rem;
+  color: black;
+  margin-top: 60px;
+}
+
+.symbol {
+  margin-right: 16px;
+  font-size: 2.6rem;
 }
 
 .einstieg {
   text-align: center;
-  color: white;
   margin-bottom: 20px;
 }
 
-.einstieg select {
-  font-size: 1.2rem;
-  padding: 8px 14px;
-  border-radius: 10px;
-  border: none;
-  margin-left: 12px;
+/* Titel */
+.einstieg h2 {
+  font-size: 4.8rem;
+  margin-bottom: 10px;
+  color: #e09411;
+}
+
+/* Beschreibung */
+.einstieg p {
+  font-size: 2.4rem;
+  color: #e09411; 
+}
+
+/* Label "Gebiet:" */
+.dropdown-label {
+  font-size: 2.5rem;
+  color:#e09411; 
+  margin-right: 8px;
+}
+
+
+#gebiet-auswahl {
+  font-size: 1.6rem;   /* größere Dropdown-Schrift */
+  padding: 8px 16px;   /* mehr Innenabstand für bessere Klickfläche */
+  border-radius: 12px;
+  border: 2px solid #3c2f2a;
+  background-color: #e09411;
+  color: #3c2f2a;
+}
+
+
+.gebietsname {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-size: 1.9rem;
+  color: #e7ab4a;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #000;
+  pointer-events: none;
+  z-index: 5;
 }
