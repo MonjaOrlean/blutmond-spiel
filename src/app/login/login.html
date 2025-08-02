@@ -1,0 +1,36 @@
+<div class="login-wrapper">
+  <!-- Hintergrundbild -->
+  <img src="assets/login-hintergrund.png" alt="Hintergrund" class="login-hintergrundbild" />
+
+  <!-- Halbtransparenter Overlay -->
+  <div class="login-overlay">
+    <div class="login-container">
+      <h2 class="login-title">🔐 Anmeldung</h2>
+
+      <input
+        type="text"
+        placeholder="E-Mail"
+        [(ngModel)]="email"
+      />
+
+      <div style="position: relative;">
+        <input
+          [type]="passwortAnzeigen ? 'text' : 'password'"
+          placeholder="Passwort"
+          [(ngModel)]="passwort"
+        />
+        <span
+          style="position: absolute; right: 12px; top: 12px; cursor: pointer; font-size: 1.3rem;"
+          (click)="togglePasswortsichtbarkeit()"
+          [title]="passwortAnzeigen ? 'Passwort verbergen' : 'Passwort anzeigen'"
+        >
+          {{ passwortAnzeigen ? '🙈' : '👁️' }}
+        </span>
+      </div>
+
+      <button class="login-button" (click)="login()">Anmelden</button>
+
+      <div class="fehler" *ngIf="fehlermeldung">{{ fehlermeldung }}</div>
+    </div>
+  </div>
+</div>
